@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CarsFormComponent } from './cars-form/cars-form.component';
 import { CarsComponent } from './cars/cars.component';
 import { carsReducer } from './redux/cars.reducer';
+import { CarsService } from './cars.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,12 @@ import { carsReducer } from './redux/cars.reducer';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({carPage: carsReducer})
   ],
-  providers: [],
+  providers: [CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
