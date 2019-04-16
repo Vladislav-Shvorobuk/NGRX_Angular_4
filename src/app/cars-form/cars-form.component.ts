@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import * as moment from 'moment';
 import { Car } from '../car.model';
-import { AppState } from '../redux/app.state';
-import { AddCar } from '../redux/cars.action';
 import { CarsService } from '../cars.service';
 
 @Component({
@@ -11,36 +8,21 @@ import { CarsService } from '../cars.service';
   templateUrl: './cars-form.component.html',
   styleUrls: ['./cars-form.component.scss']
 })
-export class CarsFormComponent implements OnInit {
-
-  private id: number = 2;
+export class CarsFormComponent {
 
   carName: string = ''
   carModel: string = ''
 
-  constructor(
-    private _store: Store<AppState>,
-    private carsService: CarsService
-  ) { }
-
-  ngOnInit() {
-  }
+  constructor(private carsService: CarsService) { }
 
   onAdd () {
      if(this.carModel === '' || this.carName === '') return;
 
-     this.id = ++this.id;
+     const date = moment().format('DD.MM.YY');
+     const car = new Car(this.carName, date, this.carModel);
 
-     const car = new Car(
-       this.carName,
-       moment().format('DD.MM.YY'),
-       this.carModel,
-       false,
-       this.id 
-     );
+     this.carsService.addCar(car);
 
-     this._store.dispatch(new AddCar(car))
-    //  this.addCar.emit(car);
      this.carModel = '';
      this.carName = '';
   }

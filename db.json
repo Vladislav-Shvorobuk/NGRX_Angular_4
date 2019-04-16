@@ -5,16 +5,21 @@
       "name": "Ford",
       "date": "12.12.06",
       "modl": "Mondeo",
-      "isSold": false
-      
+      "isSold": true
     },
     {
-      "id": 2,
-      "name": "Audi",
-      "date": "04.05.06",
-      "modl": "RX6",
-      "isSold": false
-      
+      "name": "BMV",
+      "date": "16.04.19",
+      "model": "X5",
+      "isSold": false,
+      "id": 2
+    },
+    {
+      "name": "Maxda",
+      "date": "16.04.19",
+      "model": "3",
+      "isSold": false,
+      "id": 3
     }
   ]
 }
