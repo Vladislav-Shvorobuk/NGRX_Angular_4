@@ -8,7 +8,7 @@
     <app-cars
     (deleteCar) ="onDelete($event)"
     [car] = 'c'
-    *ngFor='let c of cars'
+    *ngFor='let c of (carsState | async).cars'
     ></app-cars>
   </div>
 

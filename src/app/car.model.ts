@@ -8,6 +8,6 @@ export class Car {
     ){}
 }
 
-export interface ICars {
+export interface Cars {
     cars: Car[]
 }
