@@ -1,13 +1,6 @@
 {
   "cars": [
     {
-      "id": 1,
-      "name": "Ford",
-      "date": "12.12.06",
-      "modl": "Mondeo",
-      "isSold": true
-    },
-    {
       "name": "BMV",
       "date": "16.04.19",
       "model": "X5",
@@ -15,9 +8,9 @@
       "id": 2
     },
     {
-      "name": "Maxda",
-      "date": "16.04.19",
-      "model": "3",
+      "name": "Mazda",
+      "date": "17.04.19",
+      "model": "DF",
       "isSold": false,
       "id": 3
     }

@@ -10,8 +10,12 @@ import { CarsComponent } from './cars/cars.component';
 import { carsReducer } from './redux/cars.reducer';
 import { CarsService } from './cars.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EffectsModule } from '@ngrx/effects';
 import { CarsEffect } from './redux/cars.effect';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterModule } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,18 @@ import { CarsEffect } from './redux/cars.effect';
     AppRoutingModule,
     FormsModule,
     EffectsModule.forRoot([CarsEffect]) ,
-    StoreModule.forRoot({carPage: carsReducer})
+    StoreModule.forRoot({carPage: carsReducer}),
+    // RouterModule.forRoot([
+    //   {
+    //     path: '',
+    //     component: AppComponent
+    //   }
+    // ]),
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]

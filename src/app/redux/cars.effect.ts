@@ -16,7 +16,6 @@ export class CarsEffect {
   loadCars = this.actions$.pipe(
     ofType(CAR_ACTION.ADD_CAR),
     switchMap((action: AddCar) => {
-      console.log(action); 
       return this.carService.preloadCars();
     }),
     mergeMap((cars: Car[]) => {
